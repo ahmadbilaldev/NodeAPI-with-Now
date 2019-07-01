@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Date and Time by Node.js</title>
+		<link rel="stylesheet" href="/www/style.css" />
+	</head>
+	<body>
+		<h3>The date according to Node.js is:</h3>
+		<p class="date js-date">This should be replaced by the date.</p>
+
+		<script>
+			function main() {
+				return fetch('/api/date.js')
+					.then(function(response) {
+						return response.text();
+					})
+					.then(function(date) {
+						document.querySelector('.js-date').textContent = date;
+					});
+			}
+
+			main();
+		</script>
+	</body>
+</html>
